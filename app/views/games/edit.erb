@@ -1,0 +1,10 @@
+<%= form_tag({:controller=>"posts", :action=>"search"}, method: :get) do %>
+  <%= @game.letters %> TODO not this - visual representation of remaining letters
+  <%= number_field_tag :index %>
+  <%= number_field_tag :other_index %>
+  <%= submit_tag 'Search by user id', name: nil %>
+<% end %>
+
+
+
+TODO let use guess letters
