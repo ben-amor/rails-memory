@@ -13,15 +13,27 @@ class GamesController < ApplicationController
   end
 
   def edit
+    #TODO can't-find-it case
     id = params[:id] #QUESTION is just 'knowing' that there will be an Id parameter in the collection okay?
     @game = Game.find(id)
-    #TODO can't-find-it case
+  end
+
+  def handle_edit_post
+    id = params[:id]
+    @game = Game.find(id)
+
+    index = params[:index].to_i
+    other_index = params[:other_index].to_i
 
     #Do things to the game state
-    @game.guess(1,3) #TODO get guesses from params
-    @game.save
+    if index != nil && other_index != nil # user has taken a guess (rather than navigated to the page via index or )
+      @game.guess(index,other_index)
+      @game.save
+    end
 
-    #TODO user feedback - good guess / bad guess
+    #TODO user feedback
+
+    redirect_to url_for(:controller => :games, :action => :edit)
   end
 
 end

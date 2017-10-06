@@ -1,4 +1,4 @@
-require 'rails_helper' #QUESTION requiring rails_helper results in errors. Assume I've cocked up the install of rspec-rails somehow but no idea how.
+require 'rails_helper'
 
 describe Game do
 

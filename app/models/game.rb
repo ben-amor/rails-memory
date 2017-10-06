@@ -22,8 +22,8 @@ class Game < ApplicationRecord
 
     letter_array = self.letters.split('')
     if letter_array[index] == letter_array[other_index]
-      letter_array[index] = GuessedCharacter
-      letter_array[other_index] = GuessedCharacter
+      letter_array[index] = Game::GuessedCharacter
+      letter_array[other_index] = Game::GuessedCharacter
       self.letters = letter_array.join('')
     end
   end
